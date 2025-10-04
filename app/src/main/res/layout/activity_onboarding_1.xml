@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8024C0"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:background="#FFFFFF">
+
+        <Button
+            android:id="@+id/btnSkip"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#F5F5F5"
+            android:text="x"
+            android:fontFamily="@font/vksansdisplayregular"
+            android:textColor="@android:color/black"
+            app:cornerRadius="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    <RelativeLayout
+        android:id="@+id/distance_5"
+        android:layout_width="412dp"
+        android:layout_height="107dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/imgIcon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/icon_store"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/distance_2"
+            android:layout_width="411dp"
+            android:layout_height="96dp" />
+
+        <TextView
+            android:id="@+id/main_text_on1"
+            android:layout_width="413dp"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:lineSpacingExtra="-2sp"
+            android:fontFamily="@font/vksansdisplaymedium"
+            android:text="Найди приложение для себя"
+            android:textColor="#0077FF"
+            android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/text_on1"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:fontFamily="@font/vksansdisplayregular"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="0sp"
+        android:textSize="16sp"
+        android:textColor="#0077FF"
+        android:text="И присоединитесь к более чем 60 миллионам пользователей" />
+
+    <RelativeLayout
+        android:id="@+id/distance_2"
+        android:layout_width="411dp"
+        android:layout_height="145dp"
+        tools:ignore="DuplicateIds" />
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="378dp"
+        android:layout_height="wrap_content"
+        android:background="#0077FF"
+        android:text="Погнали"
+        android:fontFamily="@font/vksansdisplayregular"
+        android:textColor="@android:color/white"/>
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

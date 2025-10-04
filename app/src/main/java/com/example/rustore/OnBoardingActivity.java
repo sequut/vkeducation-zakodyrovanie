@@ -2,11 +2,10 @@ package com.example.rustore;
 
 
 import android.content.Intent;
-import android.graphics.Typeface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.example.rustore.adapters.OnBoardingAdapter;
 import android.util.Log;
@@ -25,6 +24,16 @@ public class OnBoardingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences preferences = getSharedPreferences("app_prefs", MODE_PRIVATE);
+        boolean firstLaunch = preferences.getBoolean("firstLaunch", true);
+        //firstLaunch = true;
+        if (!firstLaunch){
+            Log.i(TAG, "skipping onboarding");
+            startActivity(new Intent(OnBoardingActivity.this, StoreActivity.class));
+            finish();
+            return;
+        }
+
         setContentView(R.layout.activity_onboarding);
 
         viewPager = findViewById(R.id.viewPager);
@@ -41,16 +50,20 @@ public class OnBoardingActivity extends AppCompatActivity {
                 viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
             } else {
                 Log.i(TAG, "onBoarding finished, going next");
-                startActivity(new Intent(OnBoardingActivity.this, StoreActivity.class));
-                finish();
+                completeOnBoarding(preferences);
             }
         });
 
         btnSkip.setOnClickListener(v-> {
             Log.i(TAG, "skipped onBoarding, going next");
-            startActivity(new Intent(OnBoardingActivity.this, StoreActivity.class));
-            finish();
+            completeOnBoarding(preferences);
         });
+    }
+
+    private void completeOnBoarding(SharedPreferences preferences){
+        preferences.edit().putBoolean("firstLaunch", false).apply();
+        startActivity(new Intent(OnBoardingActivity.this, StoreActivity.class));
+        finish();
     }
 }
 

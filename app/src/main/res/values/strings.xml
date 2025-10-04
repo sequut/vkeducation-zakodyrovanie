@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RuStore</string>
+    <string name="some_id">Пропустить</string>
+    <string name="some_1">Найди приложение для себя</string>
+    <string name="text_on1">Погнали</string>
+    <string name="text_on2">Круто</string>
 </resources>
+
