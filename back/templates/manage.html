@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>App Store Management</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #fafafa; padding: 20px; }
+        h1 { text-align: center; }
+        .container { max-width: 800px; margin: auto; }
+        .app-card { background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 10px 0; }
+        .app-card img { width: 50px; height: 50px; float: left; margin-right: 15px; }
+        .add-btn { display: block; text-align: center; margin-bottom: 20px; background: #007BFF; color: white; padding: 10px; border-radius: 8px; text-decoration: none; }
+        .add-btn:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>App Store Management</h1>
+    <a href="/add" class="add-btn">➕ Add New App</a>
+
+    {% for app in request.state.db.query(models.App).all() %}
+    <div class="app-card">
+        <img src="{{ app.icon }}" alt="icon">
+        <h3>{{ app.name }} (v{{ app.version }})</h3>
+        <p>{{ app.description }}</p>
+        <small>By {{ app.developer }} — {{ app.downloads }} downloads</small>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>
