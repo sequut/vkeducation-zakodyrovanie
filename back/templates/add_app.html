@@ -13,7 +13,7 @@
 </head>
 <body>
 <h2>Add New App</h2>
-<form method="post" action="/add">
+<form method="post" action="/add" enctype="multipart/form-data">
     <label>Name:</label>
     <input type="text" name="name" required>
 
@@ -31,6 +31,9 @@
 
     <label>Developer:</label>
     <input type="text" name="developer" required>
+
+    <label>Screenshots:</label>
+    <input type="file" name="screenshots" multiple accept="image/*">
 
     <button type="submit">Add App</button>
 </form>

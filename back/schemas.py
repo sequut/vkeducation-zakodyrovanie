@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Optional
 
 class AppBase(BaseModel):
     name: str
@@ -7,6 +8,7 @@ class AppBase(BaseModel):
     version: str
     downloads: str
     developer: str
+    screenshots: Optional[str] = None
 
 class AppCreate(AppBase):
     pass

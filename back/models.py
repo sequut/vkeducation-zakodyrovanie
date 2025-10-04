@@ -11,3 +11,4 @@ class App(Base):
     version = Column(String)
     downloads = Column(String)
     developer = Column(String)
+    screenshots = Column(String, nullable=True)
