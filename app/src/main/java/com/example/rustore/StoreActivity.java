@@ -8,12 +8,14 @@ import com.example.rustore.adapters.AppsAdapter;
 import com.example.rustore.models.AppItem;
 import java.util.ArrayList;
 import java.util.List;
+import android.util.Log;
 
 public class StoreActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private AppsAdapter adapter;
     private List<AppItem> apps;
+    private static final String TAG = "StoreActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,7 @@ public class StoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_store);
 
         recyclerView = findViewById(R.id.recyclerViewApps);
+        Log.i(TAG, recyclerView.toString());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         apps = new ArrayList<>();
