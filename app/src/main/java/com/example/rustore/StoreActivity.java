@@ -1,20 +1,28 @@
 package com.example.rustore;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.rustore.adapters.AppsAdapter;
 import com.example.rustore.models.AppItem;
-import java.util.ArrayList;
+import com.example.rustore.network.ApiClient;
+import com.example.rustore.network.ApiService;
+
 import java.util.List;
-import android.util.Log;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class StoreActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private AppsAdapter adapter;
-    private List<AppItem> apps;
     private static final String TAG = "StoreActivity";
 
     @Override
@@ -23,15 +31,32 @@ public class StoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_store);
 
         recyclerView = findViewById(R.id.recyclerViewApps);
-        Log.i(TAG, recyclerView.toString());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        apps = new ArrayList<>();
-        apps.add(new AppItem("App 1", "Description 1", R.drawable.img1));
-        apps.add(new AppItem("App 2", "Description 2", R.drawable.img2));
-        apps.add(new AppItem("App 3", "Description 3", R.drawable.img3));
+        loadAppsFromApi();
+    }
 
-        adapter = new AppsAdapter(this, apps);
-        recyclerView.setAdapter(adapter);
+    private void loadAppsFromApi() {
+        ApiService apiService = ApiClient.getApiService();
+        Call<List<AppItem>> call = apiService.getApps();
+        call.enqueue(new Callback<List<AppItem>>() {
+            @Override
+            public void onResponse(Call<List<AppItem>> call, Response<List<AppItem>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<AppItem> apps = response.body();
+                    adapter = new AppsAdapter(StoreActivity.this, apps);
+                    recyclerView.setAdapter(adapter);
+                } else {
+                    Toast.makeText(StoreActivity.this, "Ошибка при загрузке данных", Toast.LENGTH_SHORT).show();
+                    Log.e(TAG, "Response error: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<AppItem>> call, Throwable t) {
+                Toast.makeText(StoreActivity.this, "Не удалось загрузить данные", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "API call failed", t);
+            }
+        });
     }
 }

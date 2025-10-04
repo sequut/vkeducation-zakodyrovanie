@@ -21,6 +21,6 @@ public class AppDetailedActivity extends AppCompatActivity {
 
         appName.setText(getIntent().getStringExtra("name"));
         appDescription.setText(getIntent().getStringExtra("description"));
-        appImage.setImageResource(getIntent().getIntExtra("imageRes", R.drawable.img1));
+        appImage.setImageResource(getIntent().getIntExtra("imageRes", R.drawable.placeholder));
     }
 }

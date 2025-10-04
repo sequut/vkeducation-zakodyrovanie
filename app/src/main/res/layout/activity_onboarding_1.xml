@@ -10,44 +10,46 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#8024C0"/>
+        android:background="#8024C0"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
-        android:background="#FFFFFF">
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="30dp">
+
 
         <Button
             android:id="@+id/btnSkip"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="#F5F5F5"
-            android:text="x"
             android:fontFamily="@font/vksansdisplayregular"
+            android:text="x"
             android:textColor="@android:color/black"
             app:cornerRadius="16dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <RelativeLayout
+            android:id="@+id/distance_5"
+            android:layout_width="412dp"
+            android:layout_height="107dp" />
 
-    <RelativeLayout
-        android:id="@+id/distance_5"
-        android:layout_width="412dp"
-        android:layout_height="107dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
-
-        <ImageView
-            android:id="@+id/imgIcon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/icon_store"
-            android:layout_centerInParent="true"/>
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/imgIcon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/icon_store" />
+        </RelativeLayout>
 
 
         <RelativeLayout
@@ -59,38 +61,38 @@
             android:id="@+id/main_text_on1"
             android:layout_width="413dp"
             android:layout_height="56dp"
+            android:fontFamily="@font/vksansdisplaymedium"
             android:gravity="center"
             android:lineSpacingExtra="-2sp"
-            android:fontFamily="@font/vksansdisplaymedium"
             android:text="Найди приложение для себя"
             android:textColor="#0077FF"
             android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/text_on1"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:fontFamily="@font/vksansdisplayregular"
-        android:gravity="center_horizontal|top"
-        android:lineSpacingExtra="0sp"
-        android:textSize="16sp"
-        android:textColor="#0077FF"
-        android:text="И присоединитесь к более чем 60 миллионам пользователей" />
+        <TextView
+            android:id="@+id/text_on1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:fontFamily="@font/vksansdisplayregular"
+            android:gravity="center_horizontal|top"
+            android:lineSpacingExtra="0sp"
+            android:text="И присоединитесь к более чем 60 миллионам пользователей"
+            android:textColor="#0077FF"
+            android:textSize="16sp" />
 
-    <RelativeLayout
-        android:id="@+id/distance_2"
-        android:layout_width="411dp"
-        android:layout_height="145dp"
-        tools:ignore="DuplicateIds" />
+        <RelativeLayout
+            android:id="@+id/distance_2"
+            android:layout_width="411dp"
+            android:layout_height="145dp"
+            tools:ignore="DuplicateIds" />
 
-    <Button
-        android:id="@+id/btnNext"
-        android:layout_width="378dp"
-        android:layout_height="wrap_content"
-        android:background="#0077FF"
-        android:text="Погнали"
-        android:fontFamily="@font/vksansdisplayregular"
-        android:textColor="@android:color/white"/>
+        <Button
+            android:id="@id/btnNext"
+            android:layout_width="378dp"
+            android:layout_height="wrap_content"
+            android:background="#0077FF"
+            android:fontFamily="@font/vksansdisplayregular"
+            android:text="Погнали"
+            android:textColor="@android:color/white" />
 
 
     </LinearLayout>

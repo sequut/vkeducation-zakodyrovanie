@@ -3,23 +3,15 @@ package com.example.rustore.models;
 public class AppItem {
     private String name;
     private String description;
-    private int imageRes;
+    private String icon;
 
-    public AppItem(String name, String description, int imageRes) {
+    public AppItem(String name, String description, String imageUrl) {
         this.name = name;
         this.description = description;
-        this.imageRes = imageRes;
+        this.icon = imageUrl;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public int getImageRes() {
-        return imageRes;
-    }
+    public String getName() { return name; }
+    public String getDescription() { return description; }
+    public String getImageUrl() { return icon; }
 }
