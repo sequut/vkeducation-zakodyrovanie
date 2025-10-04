@@ -2,9 +2,11 @@ package com.example.rustore;
 
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.example.rustore.adapters.OnBoardingAdapter;
 import android.util.Log;
@@ -13,6 +15,7 @@ public class OnBoardingActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private Button btnNext;
+    private Button btnSkip;
     private static final String TAG = "OnBoardingActivity";
 
     private int[] images = {R.drawable.img1, R.drawable.img2, R.drawable.img3};
@@ -26,6 +29,7 @@ public class OnBoardingActivity extends AppCompatActivity {
 
         viewPager = findViewById(R.id.viewPager);
         btnNext = findViewById(R.id.btnNext);
+        btnSkip = findViewById(R.id.btnSkip);
 
         OnBoardingAdapter adapter = new OnBoardingAdapter(this, images, titles, descriptions);
         viewPager.setAdapter(adapter);
@@ -36,10 +40,16 @@ public class OnBoardingActivity extends AppCompatActivity {
                 Log.i(TAG, "next page onBoarding");
                 viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
             } else {
-                Log.i(TAG, "onBoarding finished going next");
+                Log.i(TAG, "onBoarding finished, going next");
                 startActivity(new Intent(OnBoardingActivity.this, StoreActivity.class));
                 finish();
             }
+        });
+
+        btnSkip.setOnClickListener(v-> {
+            Log.i(TAG, "skipped onBoarding, going next");
+            startActivity(new Intent(OnBoardingActivity.this, StoreActivity.class));
+            finish();
         });
     }
 }
