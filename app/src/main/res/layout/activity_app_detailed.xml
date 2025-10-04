@@ -10,7 +10,7 @@
         android:padding="24dp">
 
         <ImageView
-            android:id="@+id/appDetailImage"
+            android:id="@+id/appDetailedImage"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
@@ -18,7 +18,7 @@
             android:src="@drawable/placeholder"/>
 
         <TextView
-            android:id="@+id/appDetailName"
+            android:id="@+id/appDetailedName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="App Name"
@@ -27,7 +27,7 @@
             android:layout_marginTop="16dp"/>
 
         <TextView
-            android:id="@+id/appDetailDescription"
+            android:id="@+id/appDetailedDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="App Description"

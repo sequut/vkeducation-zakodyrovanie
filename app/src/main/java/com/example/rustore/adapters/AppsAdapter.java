@@ -2,12 +2,12 @@ package com.example.rustore.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +23,7 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.AppViewHolder>
 
     private Context context;
     private List<AppItem> apps;
+    private static final String TAG = "AppAdapterActivity";
 
     public AppsAdapter(Context context, List<AppItem> apps) {
         this.context = context;
@@ -48,6 +49,11 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.AppViewHolder>
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, AppDetailedActivity.class);
             intent.putExtra("appName", app.getName());
+            intent.putExtra("appDescription", app.getDescription());
+            intent.putExtra("appAuthor", app.getAuthor());
+            intent.putExtra("appDownloads", app.getDownloads());
+            intent.putExtra("appScreenshots", app.getScreenshots());
+            intent.putExtra("appLogo", app.getImageUrl());
             context.startActivity(intent);
         });
     }

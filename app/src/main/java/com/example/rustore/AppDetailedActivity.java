@@ -5,6 +5,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+
 public class AppDetailedActivity extends AppCompatActivity {
 
     private ImageView appImage;
@@ -15,12 +17,24 @@ public class AppDetailedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_detailed);
 
-        appImage = findViewById(R.id.appDetailImage);
-        appName = findViewById(R.id.appDetailName);
-        appDescription = findViewById(R.id.appDetailDescription);
+        appImage = findViewById(R.id.appDetailedImage);
+        appName = findViewById(R.id.appDetailedName);
+        appDescription = findViewById(R.id.appDetailedDescription);
+        setAppImage();
+        appName.setText(getIntent().getStringExtra("appName"));
+        appDescription.setText(getIntent().getStringExtra("appDescription"));
 
-        appName.setText(getIntent().getStringExtra("name"));
-        appDescription.setText(getIntent().getStringExtra("description"));
-        appImage.setImageResource(getIntent().getIntExtra("imageRes", R.drawable.placeholder));
+    }
+    private void setAppImage(){
+        String appLogoUrl = getIntent().getStringExtra("appLogo");
+        if (appLogoUrl != null && !appLogoUrl.isEmpty()) {
+            Glide.with(this)
+                    .load(appLogoUrl)
+                    .placeholder(R.drawable.placeholder)
+                    .error(R.drawable.placeholder)
+                    .into(appImage);
+        } else {
+            appImage.setImageResource(R.drawable.placeholder);
+        }
     }
 }
