@@ -19,9 +19,9 @@
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/appScreenshots"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="16dp"/>
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/appDetailedName"
@@ -102,6 +102,42 @@
             android:fontFamily="@font/vksansdisplayregular"
             android:layout_height="wrap_content"
             android:text="App version"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/Tags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/vksansdisplayregular"
+            android:text="Теги:"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/appTags"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/vksansdisplayregular"
+            android:layout_height="wrap_content"
+            android:text="App tags"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/Age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/vksansdisplayregular"
+            android:text="Возрастное ограничение:"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/appAge"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/vksansdisplayregular"
+            android:layout_height="wrap_content"
+            android:text="App age"
             android:layout_marginTop="8dp"
             android:textSize="16sp"/>
     </LinearLayout>

@@ -8,10 +8,12 @@ public class AppItem {
     private String version;
     private String developer;
     private String downloads;
+    private String age;
+    private String tags;
 
 
     public AppItem(String name, String description, String imageUrl, String version,
-                   String author, String downloads, String screenshots) {
+                   String author, String downloads, String screenshots, String age, String tags) {
         this.name = name;
         this.description = description;
         this.icon = imageUrl;
@@ -19,6 +21,8 @@ public class AppItem {
         this.version = version;
         this.developer = author;
         this.downloads = downloads;
+        this.tags = tags;
+        this.age = age;
     }
 
     public String getName() { return name; }
@@ -28,4 +32,6 @@ public class AppItem {
     public String getVersion() { return version; }
     public String getAuthor() { return developer; }
     public String getDownloads() { return downloads; }
+    public String getTags() { return tags; }
+    public String getAge() { return age; }
 }

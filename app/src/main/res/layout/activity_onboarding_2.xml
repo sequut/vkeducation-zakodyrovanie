@@ -20,7 +20,7 @@
         android:background="#8024C0">
 
         <Button
-            android:id="@+id/btnSkip"
+            android:id="@+id/btnSkip_2"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="#F5F5F5"
@@ -34,8 +34,9 @@
 
         <RelativeLayout
             android:id="@+id/distance_5"
-            android:layout_width="378dp"
-            android:layout_height="107dp" />
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -52,19 +53,20 @@
 
         <RelativeLayout
             android:id="@+id/distance_2"
-            android:layout_width="380dp"
-            android:layout_height="66dp" />
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/main_text_on2"
-            android:layout_width="381dp"
+            android:layout_width="wrap_content"
             android:layout_height="56dp"
-            android:textSize="24sp"
-            android:gravity="center"
             android:fontFamily="@font/vksansdisplaymedium"
+            android:gravity="center"
             android:lineSpacingExtra="-2sp"
             android:text="Подписка и покупки в один клик"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/text_on2"
@@ -79,12 +81,13 @@
 
         <RelativeLayout
             android:id="@+id/distance_2"
-            android:layout_width="379dp"
-            android:layout_height="145dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             tools:ignore="DuplicateIds" />
 
         <Button
-            android:id="@+id/btnNext"
+            android:id="@+id/btnNext_2"
             android:layout_width="378dp"
             android:layout_height="wrap_content"
             android:background="@android:color/white"

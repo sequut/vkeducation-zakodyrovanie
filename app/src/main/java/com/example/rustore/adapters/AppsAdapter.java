@@ -55,6 +55,8 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.AppViewHolder>
             intent.putExtra("appScreenshots", app.getScreenshots());
             intent.putExtra("appLogo", app.getImageUrl());
             intent.putExtra("appVersion", app.getVersion());
+            intent.putExtra("appAge", app.getAge());
+            intent.putExtra("appTags", app.getTags());
             context.startActivity(intent);
         });
     }

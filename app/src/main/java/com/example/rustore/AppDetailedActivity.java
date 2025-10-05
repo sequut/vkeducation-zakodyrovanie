@@ -18,7 +18,7 @@ import java.util.List;
 public class AppDetailedActivity extends AppCompatActivity {
 
     private ImageView appImage;
-    private TextView appName, appDescription, appDownloads, appAuthor, appVersion;
+    private TextView appName, appDescription, appDownloads, appAuthor, appVersion, appAge, appTags;
     private static final String TAG = "screens";
 
     @Override
@@ -32,15 +32,19 @@ public class AppDetailedActivity extends AppCompatActivity {
         appDownloads = findViewById(R.id.appDownloads);
         appAuthor = findViewById(R.id.appAuthor);
         appVersion = findViewById(R.id.appVersion);
+        appAge = findViewById(R.id.appAge);
+        appTags = findViewById(R.id.appTags);
 
         setAppImage();
         appName.setText(getIntent().getStringExtra("appName"));
         appDescription.setText(getIntent().getStringExtra("appDescription"));
         appDownloads.setText(getIntent().getStringExtra("appDownloads"));
         appAuthor.setText(getIntent().getStringExtra("appAuthor"));
+        appAge.setText(getIntent().getStringExtra("appAge"));
+        appTags.setText(getIntent().getStringExtra("appTags"));
         appVersion.setText(getIntent().getStringExtra("appVersion"));
 
-        List<File> screenshots = setScreenshots();
+        List<String> screenshots = setScreenshots();
         ViewPager2 viewPager = findViewById(R.id.appScreenshots);
         ScreenshotsAdapter adapter = new ScreenshotsAdapter(screenshots);
         viewPager.setAdapter(adapter);
@@ -60,21 +64,17 @@ public class AppDetailedActivity extends AppCompatActivity {
         }
     }
 
-    private List<File> setScreenshots(){
+    private List<String> setScreenshots(){
         String screenshotsString = getIntent().getStringExtra("appScreenshots");
-        List<File> screenshotFiles = new ArrayList<>();
+        List<String> screenshots = new ArrayList<>();
 
         if (screenshotsString != null && !screenshotsString.isEmpty()) {
-            String[] paths = screenshotsString.split(",");
-            for (String path : paths) {
-                File file = new File(new File("back"), path.trim());
-                Log.i(TAG, file.getAbsolutePath());
-                if (file.exists()) {
-                    screenshotFiles.add(file);
-                }
+            String[] urls = screenshotsString.split(",");
+            for (String url : urls) {
+                screenshots.add(url.trim());
             }
         }
 
-        return screenshotFiles;
+        return screenshots;
     }
 }

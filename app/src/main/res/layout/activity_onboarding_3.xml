@@ -20,7 +20,7 @@
         android:background="#0077FF">
 
         <Button
-            android:id="@+id/btnSkip"
+            android:id="@+id/btnSkip_3"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="#F5F5F5"
@@ -34,8 +34,9 @@
 
         <RelativeLayout
             android:id="@+id/distance_5"
-            android:layout_width="378dp"
-            android:layout_height="107dp" />
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -51,8 +52,9 @@
 
         <RelativeLayout
             android:id="@+id/distance_2"
-            android:layout_width="380dp"
-            android:layout_height="66dp" />
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/main_text_on2"
@@ -78,12 +80,13 @@
 
         <RelativeLayout
             android:id="@+id/distance_2"
-            android:layout_width="379dp"
-            android:layout_height="136dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             tools:ignore="DuplicateIds" />
 
         <Button
-            android:id="@+id/btnNext"
+            android:id="@+id/btnNext_3"
             android:layout_width="378dp"
             android:layout_height="wrap_content"
             android:background="@android:color/white"
