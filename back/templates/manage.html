@@ -26,11 +26,6 @@
         <p>{{ app.description }}</p>
         <small>By {{ app.developer }} — {{ app.downloads }} downloads</small>
         {% if app.screenshots %}
-        <div class="screenshots">
-            {% for shot in app.screenshots.split(',') %}
-                <img src="{{ shot }}" alt="screenshot">
-            {% endfor %}
-        </div>
         {% endif %}
     </div>
     {% endfor %}

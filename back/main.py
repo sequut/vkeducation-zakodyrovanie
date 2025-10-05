@@ -66,7 +66,9 @@ async def add_app(
     version: str = Form(...),
     downloads: str = Form(...),
     developer: str = Form(...),
-    screenshots: List[UploadFile] = File(None),
+    age: str = Form(...),
+    tags: str = Form(...),
+    screenshots: str = Form(...),
     db: Session = Depends(get_db)
 ):
     saved_files = []
@@ -84,7 +86,9 @@ async def add_app(
         version=version,
         downloads=downloads,
         developer=developer,
-        screenshots=",".join(saved_files) if saved_files else None
+        age=age,
+        tags=tags,
+        screenshots=screenshots
     )
     db.add(new_app)
     db.commit()
